@@ -1,7 +1,9 @@
 <template>
   <div class="div">
     <h2>Cases Today</h2>
-    <p>{{ JSON.stringify(fetchData()) }}</p>
+    <p>
+      {{ processData() }}
+    </p>
   </div>
 </template>
 
@@ -9,15 +11,23 @@
 import { onMounted } from 'vue';
 
 const fetchData = async () => {
-  const res = await fetch('https://disease.sh/v3/covid-19/all');
+  const res = await fetch('https://disease.sh/v3/covid-19/all/');
   const json = await res.json();
-
   return json.todayCases;
 };
 
-onMounted(fetchData);
+const processData = async () => {
+  fetchData()
+    .then((val) => {
+      val;
+      console.log(val);
+    })
+    .catch((err) => console.error(err));
+};
 
-console.log(fetchData);
+onMounted(processData);
+
+console.log(fetchData());
 </script>
 
 <style>
@@ -25,5 +35,6 @@ console.log(fetchData);
   display: inline-block;
   margin: 6px;
   border-radius: 6px;
+  background: rgb(235, 221, 221);
 }
 </style>
