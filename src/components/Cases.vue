@@ -1,26 +1,29 @@
 <template>
-  <div>
+  <div class="div">
     <h2>Cases Today</h2>
     <p>{{ JSON.stringify(fetchData()) }}</p>
   </div>
 </template>
 
 <script lang="ts" setup>
-defineProps({
-  api: {
-    type: String,
-    required: true,
-  },
-});
-</script>
-
-<script lang="ts">
-import { defineProps, onActivated } from 'vue';
+import { onMounted } from 'vue';
 
 const fetchData = async () => {
-  const res = await fetch(api);
-  const cases = await res.json();
-  return cases;
+  const res = await fetch('https://disease.sh/v3/covid-19/all');
+  const json = await res.json();
+
+  return json.todayCases;
 };
-onActivated(fetchData);
+
+onMounted(fetchData);
+
+console.log(fetchData);
 </script>
+
+<style>
+.div {
+  display: inline-block;
+  margin: 6px;
+  border-radius: 6px;
+}
+</style>

@@ -8,7 +8,10 @@ import Deaths from './components/Deaths.vue';
 <template>
   <h1>Covid Tracker</h1>
 
-  <span> <Cases api="https://disease.sh/v3/covid-19/all" /><Deaths /> </span>
+  <span>
+    <Cases />
+    <Deaths />
+  </span>
 </template>
 
 <style>
