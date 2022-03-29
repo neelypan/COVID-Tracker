@@ -1,40 +1,31 @@
 <template>
   <div class="div">
-    <h2>Cases Today</h2>
-    <p>
-      {{ processData() }}
-    </p>
+    <h2>Total Cases</h2>
+    <p>{{ data }}</p>
   </div>
 </template>
 
-<script lang="ts" setup>
-import { onMounted } from 'vue';
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+
+const data = ref(null);
 
 const fetchData = async () => {
   const res = await fetch('https://disease.sh/v3/covid-19/all/');
   const json = await res.json();
-  return json.todayCases;
+
+  return json.cases;
 };
 
-const processData = async () => {
+const processData = () => {
   fetchData()
-    .then((val) => {
-      val;
-      console.log(val);
-    })
+    .then(
+      (val) =>
+        // TODO: get the data to only update if the number is different
+        (data.value = val.toLocaleString('en-US'))
+    )
     .catch((err) => console.error(err));
 };
 
 onMounted(processData);
-
-console.log(fetchData());
 </script>
-
-<style>
-.div {
-  display: inline-block;
-  margin: 6px;
-  border-radius: 6px;
-  background: rgb(235, 221, 221);
-}
-</style>
