@@ -17,8 +17,8 @@ const fetchData = async () => {
   return json.cases;
 };
 
-const processData = () => {
-  fetchData()
+const processData = async () => {
+  await fetchData()
     .then(
       (val) =>
         // TODO: get the data to only update if the number is different
@@ -27,6 +27,6 @@ const processData = () => {
     .catch((err) => console.error(err));
 };
 
-setInterval(processData, 3000000);
+setInterval(processData, 600000);
 onMounted(processData);
 </script>

@@ -25,3 +25,6 @@ dist-ssr
 
 # replit
 .replit
+
+# codesandbox
+.codesandbox/*

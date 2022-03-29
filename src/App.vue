@@ -6,7 +6,6 @@ import Info from './components/Info.vue';
 
 <template>
   <h1>COVID Tracker</h1>
-
   <Info />
 </template>
 

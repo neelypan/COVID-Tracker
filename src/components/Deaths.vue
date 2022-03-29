@@ -6,28 +6,28 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref } from "vue";
 
 const data = ref(null);
 
 const fetchData = async () => {
-  const res = await fetch('https://disease.sh/v3/covid-19/all/');
+  const res = await fetch("https://disease.sh/v3/covid-19/all/");
   const json = await res.json();
 
   return json.deaths;
 };
 
-const processData = () => {
-  fetchData()
+const processData = async () => {
+  await fetchData()
     .then(
       (val) =>
         // TODO: get the data to only update if the number is different
-        (data.value = val.toLocaleString('en-US'))
+        (data.value = val.toLocaleString("en-US"))
     )
     .catch((err) => console.error(err));
 };
 
-setInterval(processData, 3000000);
+setInterval(processData, 600000);
 onMounted(processData);
 </script>
 
