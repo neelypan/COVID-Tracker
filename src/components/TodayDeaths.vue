@@ -25,7 +25,7 @@ const processData = () => {
   });
 };
 
-setInterval(processData, 900000);
+setInterval(processData, 3000000);
 
 onMounted(processData);
 </script>
