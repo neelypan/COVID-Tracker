@@ -26,7 +26,7 @@ const processData = async () => {
     )
     .catch((err) => console.error(err));
 };
-setInterval(processData, 900000);
+setInterval(processData, 3000000);
 onMounted(processData);
 </script>
 
