@@ -27,5 +27,6 @@ const processData = () => {
     .catch((err) => console.error(err));
 };
 
+setInterval(processData, 3000000);
 onMounted(processData);
 </script>
