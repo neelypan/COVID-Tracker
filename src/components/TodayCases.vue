@@ -1,6 +1,6 @@
 <template>
   <div class="div">
-    <h2>Cases Today</h2>
+    <h3>Cases Today</h3>
     <p>
       {{ data }}
     </p>

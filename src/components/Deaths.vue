@@ -1,6 +1,6 @@
 <template>
   <div class="div">
-    <h2>Total Deaths</h2>
+    <h3>Total Deaths</h3>
     <p>{{ data }}</p>
   </div>
 </template>
