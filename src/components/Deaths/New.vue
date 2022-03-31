@@ -1,17 +1,17 @@
 <template>
   <div class="div">
-    <h3>Deaths Today</h3>
+    <h4>Deaths Today</h4>
     <p>{{ data }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { onMounted, ref } from 'vue';
 
 const data = ref(null);
 
 const fetchData = async () => {
-  const res = await fetch("https://disease.sh/v3/covid-19/all/");
+  const res = await fetch('https://disease.sh/v3/covid-19/all/');
   const json = await res.json();
 
   return json.todayDeaths;
@@ -20,7 +20,7 @@ const fetchData = async () => {
 const processData = async () => {
   await fetchData().then((val) => {
     // TODO: get the data to only update if the number is different
-    data.value = val.toLocaleString("en-US");
+    data.value = val.toLocaleString('en-US');
   });
 };
 

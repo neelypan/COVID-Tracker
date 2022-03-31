@@ -1,15 +1,27 @@
 <script setup lang="ts">
-import TodayCases from './TodayCases.vue';
-import TodayDeaths from './TodayDeaths.vue';
-import Cases from './Cases.vue';
-import Deaths from './Deaths.vue';
+import Cases from './Cases/index.vue';
+import Deaths from './Deaths/index.vue';
+import Strains from './Strains.vue';
 </script>
 
 <template>
   <div>
-    <TodayCases />
-    <TodayDeaths />
     <Cases />
+    <TodayDeaths />
+
     <Deaths />
+
+    <Strains />
   </div>
 </template>
+
+<style>
+.div {
+  display: inline-block;
+  margin: 6px;
+  border-radius: 6px;
+  background: rgb(235, 221, 221);
+  width: max-content;
+  height: max-content;
+}
+</style>
