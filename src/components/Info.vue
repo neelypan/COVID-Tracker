@@ -6,7 +6,6 @@ import Deaths from './Deaths/index.vue';
 <template>
   <div>
     <Cases />
-    <TodayDeaths />
     <Deaths />
   </div>
 </template>
