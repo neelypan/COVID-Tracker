@@ -1,17 +1,13 @@
 <script setup lang="ts">
 import Cases from './Cases/index.vue';
 import Deaths from './Deaths/index.vue';
-import Strains from './Strains.vue';
 </script>
 
 <template>
   <div>
     <Cases />
     <TodayDeaths />
-
     <Deaths />
-
-    <Strains />
   </div>
 </template>
 
